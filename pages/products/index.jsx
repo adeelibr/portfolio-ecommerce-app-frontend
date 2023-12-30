@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { useContext, useEffect, useMemo, useState } from 'react'
+import { useContext, useMemo, useState } from 'react'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
 
@@ -7,7 +7,6 @@ import mongooseConnect from '@/lib/mongoose'
 import { Product } from '@/models/Product'
 
 import { CartContext } from '@/lib/CartContext'
-import Spinner from '@/components/Spinner'
 
 // Utility function to format price with a comma for thousands
 const formatPrice = (price) => {

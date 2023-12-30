@@ -1,4 +1,4 @@
-const { Schema, models, model, default: mongoose } = require('mongoose')
+import { Schema, model, models, mongoose } from 'mongoose'
 
 const CategorySchema = new Schema({
   name: { type: String, required: true },
