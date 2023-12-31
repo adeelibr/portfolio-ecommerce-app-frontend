@@ -3,14 +3,14 @@ import { useContext } from 'react'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
 
-import { CartContext } from '@/lib/CartContext'
+import useCartStore from '@/lib/useCartStore'
 
 const formatPrice = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }
 
 const Products = ({ products }) => {
-  const { addProduct } = useContext(CartContext)
+  const { addProduct } = useCartStore()
 
   const addItemToCart = (productId) => {
     addProduct(productId)

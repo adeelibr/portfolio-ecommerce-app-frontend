@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 import mongooseConnect from '@/lib/mongoose'
 import { Product } from '@/models/Product'
 
-import { CartContext } from '@/lib/CartContext'
+import useCartStore from '@/lib/useCartStore'
 
 // Utility function to format price with a comma for thousands
 const formatPrice = (price) => {
@@ -14,7 +14,7 @@ const formatPrice = (price) => {
 }
 
 export default function Products({ allProducts }) {
-  const { addProduct } = useContext(CartContext)
+  const { addProduct} = useCartStore();
 
   const [searchQuery, setSearchQuery] = useState('')
 

@@ -5,13 +5,14 @@ import Link from 'next/link'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 
-import { CartContext } from '@/lib/CartContext'
+import useCartStore from '@/lib/useCartStore'
 import Spinner from '@/components/Spinner'
 import Success from '@/components/Success'
 
 export default function Cart() {
   const { data: session } = useSession()
-  const { cartProducts, removeProduct, addProduct, clearCart } = useContext(CartContext)
+
+  const { cartProducts, removeProduct, addProduct, clearCart } = useCartStore()
 
   const [products, setProducts] = useState([])
   const [address, setAddress] = useState('')
@@ -155,6 +156,7 @@ export default function Cart() {
                               <input
                                 type="number"
                                 id="Quantity"
+                                disabled
                                 value={cartProducts.filter((id) => id === product._id).length}
                                 className="h-10 w-16 rounded border border-secondary text-primary font-bold text-center [-moz-appearance:_textfield] sm:text-md [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                               />
@@ -244,6 +246,7 @@ export default function Cart() {
                         name="email"
                         className="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500"
                         value={session.user.email}
+                        disabled
                         placeholder="Email"
                       />
                     </div>
@@ -254,6 +257,7 @@ export default function Cart() {
                         name="name"
                         className="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500"
                         value={session.user.name}
+                        disabled
                         placeholder="Full name"
                       />
                     </div>

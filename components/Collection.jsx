@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
 
-import { CartContext } from '@/lib/CartContext'
+import useCartStore from '@/lib/useCartStore'
 
 // Utility function to format price with a comma for thousands
 const formatPrice = (price) => {
@@ -11,7 +11,7 @@ const formatPrice = (price) => {
 }
 
 export default function Collection({ product }) {
-  const { addProduct } = useContext(CartContext)
+  const { addProduct } = useCartStore()
 
   const addItemToCart = (productId) => {
     addProduct(productId)

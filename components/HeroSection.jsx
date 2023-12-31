@@ -3,10 +3,10 @@ import { useContext } from 'react'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
 
-import { CartContext } from '@/lib/CartContext'
+import useCartStore from '@/lib/useCartStore'
 
 const HeroSection = ({ product }) => {
-  const { addProduct } = useContext(CartContext)
+  const { addProduct } = useCartStore()
 
   const addItemToCart = () => {
     addProduct(product._id)

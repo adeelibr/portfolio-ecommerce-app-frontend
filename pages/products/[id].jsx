@@ -5,14 +5,14 @@ import toast from 'react-hot-toast'
 import mongooseConnect from '@/lib/mongoose'
 import { Product } from '@/models/Product'
 
-import { CartContext } from '@/lib/CartContext'
+import useCartStore from '@/lib/useCartStore'
 
 const formatPrice = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }
 
 export default function ProductPage({ product }) {
-  const { addProduct } = useContext(CartContext)
+  const { addProduct } = useCartStore();
 
   if (!product) return <p>Product not found.</p>
 
