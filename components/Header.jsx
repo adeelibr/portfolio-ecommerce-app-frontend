@@ -69,8 +69,8 @@ const Header = () => {
                 </div>
               ) : (
                 <div className="sm:flex sm:gap-2 border-r border-primary pr-4">
-                  <Link className=" text-md font-medium text-text hidden md:flex" href="/">
-                    Account
+                  <Link className=" text-md font-medium text-text hidden md:flex" href="/cart">
+                    Login/Signup
                   </Link>
                   <Link className=" text-md font-medium text-text hidden max-md:flex md:hidden" href="/">
                     <svg
